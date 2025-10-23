@@ -39,7 +39,7 @@ export const getTokenMetadata = async (address: string) => {
 
 async function getLatestBlockNumber(): Promise<string> {
   try {
-    const ALCHEMY_MAINNET = process.env.ALCHEMY_MAINNET || 'https://eth-mainnet.g.alchemy.com/v2/Bye_BSbZlbmw8vNe2kK_m';
+    const ALCHEMY_MAINNET = process.env.ALCHEMY_MAINNET || 'https://eth-mainnet.g.alchemy.com/v2/your_api_key';
     const url = ALCHEMY_MAINNET;
     const res = await axios.post(
       url,
@@ -69,7 +69,7 @@ export const getTopHolders = async (address: string, limit: number) => {
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
       await delay(1000);
-      const ALCHEMY_MAINNET = process.env.ALCHEMY_MAINNET || 'https://eth-mainnet.g.alchemy.com/v2/Bye_BSbZlbmw8vNe2kK_m';
+      const ALCHEMY_MAINNET = process.env.ALCHEMY_MAINNET || 'https://eth-mainnet.g.alchemy.com/v2/your_api_key';
       const url = ALCHEMY_MAINNET;
       const latestBlock = await getLatestBlockNumber();
       const fromBlock = `0x${(parseInt(latestBlock, 16) - 1000).toString(16)}`; // Last 1000 blocks
@@ -168,7 +168,7 @@ export const getTokenTransactions = async (address: string) => {
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
       await delay(1000);
-      const ALCHEMY_MAINNET = process.env.ALCHEMY_MAINNET || 'https://eth-mainnet.g.alchemy.com/v2/Bye_BSbZlbmw8vNe2kK_m';
+      const ALCHEMY_MAINNET = process.env.ALCHEMY_MAINNET || 'https://eth-mainnet.g.alchemy.com/v2/your_api_key';
       const url = ALCHEMY_MAINNET;
       const latestBlock = await getLatestBlockNumber();
       const fromBlock = `0x${(parseInt(latestBlock, 16) - 1000).toString(16)}`; // Last 1000 blocks
